@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void usagePrint()
+void afficherUsage()
 {
   printf("Usage: program -f fichier [-s nombre | -i]");
   printf("\n");
