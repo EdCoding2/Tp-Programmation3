@@ -6,7 +6,7 @@
       "type": "cppvsdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/program.exe",
-      "args": ["main.c", "-f", "fichier", "-s"],
+      "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}/build/",
       "environment": [],
