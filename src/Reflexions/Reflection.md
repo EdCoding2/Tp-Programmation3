@@ -37,7 +37,9 @@ int indexI = 0; // indice de -i dans argv
 
 for(short i = 1; i < argc; ++i){
 	if (strcmp(argv[i], "-f") == 0){
-
+		if( indexF est vrai[s'il est vrai ça veut dire que il a été trouvé avant et nous avons trouvé une répétition]  OU si nous avons atteint la limite du tableau){
+			usagePrint();
+		}
 	}
 
 }
@@ -46,4 +48,4 @@ for(short i = 1; i < argc; ++i){
 
 
 ## Arguments inconnus
-nous allons utiliser strcmp();
+nous allons utiliser strcmp() pour détecter les différences des arguments
