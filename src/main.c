@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void usagePrint()
 {
@@ -19,12 +20,55 @@ void usagePrint()
 /// @param argc Nombre d'arguments
 /// @param argv Arguments
 /// @return Code de fin de programme
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
+  
+  int indexF = 0; // 0 = argument absent
+  int indexS = 0; // indice de la valeur de -s dans argv
+  int indexI = 0; // indice de -i dans argv
 
-  for (size_t i = 0; i < argc; ++i){
-    printf("%s\n", argv[i]);
+  // Étape 1 : Vérification du placement des arguments
+  for (int i = 1; i < argc; i++)
+  {
+    if (strcmp(argv[i], "-f") == 0)
+    {
+      if (indexF || i + 1 >= argc)
+      {
+        afficherUsage();
+        return 1;
+      }
+      indexF = ++i; // indice du nom de fichier
+    }
+    else if (strcmp(argv[i], "-s") == 0)
+    {
+      if (indexS || i + 1 >= argc)
+      {
+        afficherUsage();
+        return 1;
+      }
+      indexS = ++i; // indice du nombre
+    }
+    else if (strcmp(argv[i], "-i") == 0)
+    {
+      if (indexI)
+      {
+        afficherUsage();
+        return 1;
+      }
+      indexI = i;
+    }
+    else
+    {
+      afficherUsage(); // argument inconnu
+      return 1;
+    }
   }
-  
-  
+
+  if (!indexF)
+  {
+    afficherUsage();
+    return 1;
+  }
+
   return 0;
 }
