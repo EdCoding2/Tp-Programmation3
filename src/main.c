@@ -22,10 +22,11 @@ void afficherUsage()
 /// @return Code de fin de programme
 int main(int argc, char *argv[])
 {
-  
+  FILE* fichier;
   int indexF = 0; // 0 = argument absent
   int indexS = 0; // indice de la valeur de -s dans argv
   int indexI = 0; // indice de -i dans argv
+  int nombreS;
 
   // Étape 1 : Vérification du placement des arguments
   for (int i = 1; i < argc; i++)
@@ -67,6 +68,30 @@ int main(int argc, char *argv[])
   if (!indexF)
   {
     afficherUsage();
+    return 1;
+  }
+
+  // Validation du fichier
+  fichier = fopen(argv[indexF], "r");
+
+  if(fichier)
+    //on poursuit notre lecture
+    fclose(fichier);
+  else{
+    printf("Fichier inexistant!");
+    return 1;
+  }
+
+  // Validation de l'exclusivité de -s et -i
+  if(indexI && indexF){
+    printf("\nLes arguments -s et -i ne peuvent etre ensemble!");
+    return 1;
+  }
+
+  // Validation de la valeur du argument -s
+  if(nombreS <= 0){
+    // le nombre a la valeur de 0(est un charactère) ou est négatif, il est invalide.
+    printf("Nombre inferieur ou egal a zero!");
     return 1;
   }
 
