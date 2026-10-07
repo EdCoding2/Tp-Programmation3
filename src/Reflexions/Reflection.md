@@ -44,8 +44,50 @@ for(short i = 1; i < argc; ++i){
 
 }
 
-
-
-
 ## Arguments inconnus
 nous allons utiliser strcmp() pour détecter les différences des arguments
+
+## Assurer les valeurs
+1. valeur nom du fichier
+
+le fichier peut être séparé par des dossiers:
+
+>Desktop\src\text.txt
+
+le fichier contient toujours une extension:
+
+.exe
+
+*Option 1*
+si fopen ne fctionne pas (retourne un pointeur Null)
+-> envoyer le message : "Fichier inexistant"
+
+
+2. -s et -i sont exclusifs
+
+si indexF et indexI (s'ils sont vrais)
+-> erreur : "Les arguments -s et -i ne peuvent être ensemble!"
+
+3. valeur de l'argument(-s) est numérique et positive
+
+La fonction atoi(); retourne 0 si c'est un *char* qu'on essaye de transtyper en int.
+
+printf("%d\n", atoi("-42")); // Output: -42 // pour les nombres négatifs.
+
+Procédure:
+nombreS = argv[indexS];
+
+
+if(nombre <= 0){
+	// le nombre a la valeur de 0(est un charactère) ou est négatif, il est invalide.
+	printf("Nombre inferieur ou egal a zero!");
+}
+
+## Fonction de -s
+
+
+
+# Passer d'un char -> int 
+ATOI(Chaine);
+
+pour transtyper le "nombre"(-s nombre) en int.
