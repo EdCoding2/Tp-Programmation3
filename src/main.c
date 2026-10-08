@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
       affichageHexa(argv[indexF]);
     else if (indexF && indexS && !indexI)
       printf("Affiche uniquement les chaines de caracteres(fonction -s)");
-    else if (indexF && indexI && !indexS)
+    else
       printf("Affiche uniquement les informations sur le format d'un fichier.(fonction -i)");
     
   }
