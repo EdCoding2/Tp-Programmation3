@@ -75,10 +75,10 @@ La fonction atoi(); retourne 0 si c'est un *char* qu'on essaye de transtyper en 
 printf("%d\n", atoi("-42")); // Output: -42 // pour les nombres négatifs.
 
 Procédure:
-nombreS = argv[indexS];
+nombreS = atoi(argv[indexS]);
 
 
-if(nombre <= 0){
+if(nombre <= 0 && indexS){
 	// le nombre a la valeur de 0(est un charactère) ou est négatif, il est invalide.
 	printf("Nombre inferieur ou egal a zero!");
 }
@@ -87,7 +87,24 @@ if(nombre <= 0){
 
 
 
-# Passer d'un char -> int 
+## Passer d'un char -> int 
 ATOI(Chaine);
 
 pour transtyper le "nombre"(-s nombre) en int.
+
+
+# Affichage
+
+**En-tête**: l'en-tête est une ligne fixe. Donc, nous pouvons faire une fonction void qui print l'en-tête.
+
+**Lignes**: une ligne -> un bloc de 16 octets. 
+
+
+## Les paramètres de fread(destination, taille, compte, fichier)
+Dans `fread(buffer, 1, 4, fichier)` :
+
+`buffer` : où mettre les octets lus
+`1` : chaque donnée fait 1 octet
+`4` : on veut lire 4 données
+`fichier` : le fichier source
+
